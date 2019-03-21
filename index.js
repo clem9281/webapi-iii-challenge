@@ -1,4 +1,5 @@
 // code away!
+require("dotenv").config();
 const express = require("express");
 
 // middleware
@@ -23,5 +24,7 @@ server.use("/api/users", userRoutes);
 server.use("/api/posts", postsRoutes);
 
 const port = process.env.PORT || 6500;
-
-server.listen(port, () => console.log(`Server running on port ${port}`));
+const greeting = process.env.GREETING;
+server.listen(port, () =>
+  console.log(`${greeting} server running on port ${port}`)
+);
